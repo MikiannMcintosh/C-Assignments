@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    //Declaring the Variables
+    unsigned int numOfYears;
+    double totalRainfall = 0.0;
+    double averageRainfall;
+    double averageYearlyRainfall;
+    unsigned int numOfMonths;
+
+
+    //Request number of years user would like to enter
+    cout << "How many years of rainfall would you like to enter? ";
+    cin >> numOfYears;
+
+    //Loop through the years
+    //Start at 0
+    if (numOfYears < 5){
+        for (unsigned int i = 0; i < numOfYears; i++) {
+            //Loop through each month of the year
+            //Collect rainfall data for that month
+            //Start at 0
+            for (int j = 0; j < 12; j++) {
+                double monthRainfall;
+                cout << "Please enter rainfall of Year No. " << i + 1 << " and Month No. " << j + 1 << endl;
+                cin >> monthRainfall;
+                //Add each rainfall for each month together to get the totalRainfall
+                totalRainfall += monthRainfall;
+
+            }
+        }
+
+    }
+      else {
+        cout << "You are not allowed to enter more than 5 years of rainfall data. " << endl;
+        return 0;
+    }
+
+    // Find Number of months
+    numOfMonths = 12 * numOfYears;
+    // Find Average Rainfall
+    averageRainfall = totalRainfall / numOfMonths;
+    // Find Average Yearly Rainfall
+    if(numOfYears > 1){
+        averageYearlyRainfall = totalRainfall / numOfYears;
+        cout << "Total Rainfall: " << totalRainfall << endl;
+        cout << "Average Monthly Rainfall: " << averageRainfall << endl;
+        cout << "Total Number of Months Collected: " << numOfMonths << endl;
+        averageYearlyRainfall = totalRainfall / numOfYears;
+        cout << "Average Yearly Rainfall: " << averageYearlyRainfall << endl;
+    }
+        else{
+        // Output Total Rainfall, Average Monthly Rainfall
+        // Total Number of Months & Average Yearly Rainfall
+        cout << "Total Rainfall: " << totalRainfall << endl;
+        cout << "Average Monthly Rainfall: " << averageRainfall << endl;
+        cout << "Total Number of Months Collected: " << numOfMonths << endl;
+    }
+
+    return 0;
+}
