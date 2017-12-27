@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// definition for getAverage Function
+double getAverage (string className) {
+    double average;
+    do{
+        cout << "Enter the average score for" << className << ":" << endl;
+        cin >> average;
+    }
+    while(average <= 0 || average > 100);
+
+    return average;
+}
+
+
+
+// definition of findHighestAverage Function
+void findHighestAverage(double englishAvg, double mathAvg, double spanishAvg, double scienceAvg){
+    if(englishAvg > mathAvg && englishAvg> spanishAvg && englishAvg > scienceAvg) {
+        cout << "The subject with the highest average score is English \nAverage Score: " <<englishAvg<< endl;
+    }
+    if (mathAvg > englishAvg && mathAvg> spanishAvg && mathAvg > scienceAvg){
+        cout<<"The subject with the highest average score is Math \nAverage Score: " <<mathAvg<<endl;
+    }
+    if (spanishAvg > englishAvg && spanishAvg> mathAvg && spanishAvg> scienceAvg){
+        cout<<"The subject with the highest average score is Spanish \nAverage Score: " <<spanishAvg<<endl;
+    }
+    if(scienceAvg> englishAvg && scienceAvg> spanishAvg && scienceAvg>mathAvg){
+        cout<<"The subject with the highest average score is Science \nAverage Score: " <<scienceAvg<<endl;
+    }
+}
+
+
+
+int main() {
+    // Declare necessary variables
+    double englishAvg,mathAvg,spanishAvg,scienceAvg;
+    string English,Math,Spanish,Science;
+    // Call getAverage function for each of the four subject- English, Math, Spanish, Science
+    for(int x=0;x<1; x++) {
+        englishAvg=getAverage(" English");
+
+        mathAvg=getAverage(" Math");
+
+        spanishAvg=getAverage(" Spanish");
+
+        scienceAvg=getAverage(" Science");
+
+    }
+    // Call findHighestAverage function
+    findHighestAverage(englishAvg, mathAvg, spanishAvg, scienceAvg);
+
+
+    return 0;
+}
